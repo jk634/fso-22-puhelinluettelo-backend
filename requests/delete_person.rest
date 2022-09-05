@@ -1,1 +1,1 @@
-DELETE https://holy-mountain-2984.fly.dev/api/persons/2
+DELETE http://localhost:3001/api/persons/2

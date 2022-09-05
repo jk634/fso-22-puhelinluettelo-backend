@@ -1,1 +1,1 @@
-GET https://holy-mountain-2984.fly.dev/api/persons
+GET http://localhost:3001/api/persons
