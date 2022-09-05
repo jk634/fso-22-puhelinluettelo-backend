@@ -82,6 +82,7 @@ app.put('/api/persons/:id', (req, res, next) => {
       res.json(updatedPerson);
     })
     .catch((error) => {
+      console.log(error);
       res.send(error);
       next(error);
     });
