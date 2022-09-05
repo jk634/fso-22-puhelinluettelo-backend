@@ -81,7 +81,10 @@ app.put('/api/persons/:id', (req, res, next) => {
       console.log(`${person.name}'s number was updated`);
       res.json(updatedPerson);
     })
-    .catch((error) => next(error));
+    .catch((error) => {
+      res.send(error);
+      next(error);
+    });
 });
 
 const errorHandler = (error, request, response, next) => {
@@ -89,6 +92,8 @@ const errorHandler = (error, request, response, next) => {
 
   if (error.name === 'CastError') {
     return response.status(400).send({ error: 'malformatted id' });
+  } else if (error.name === 'ValidationError') {
+    return response.status(400).json({ error: error.message });
   }
 
   next(error);
